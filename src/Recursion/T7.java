@@ -12,16 +12,32 @@ public class T7 {
         for(int i = 0;i< arr.length;i++){
             arr[i] = sc.nextInt();
         }
-
-        rvarr(arr,0, n);//calling func for result
+        callFunc(arr,0,n);//calling func for result
     }
-    public static void rvarr (int[] arr, int s,int n){
+    public static void callFunc(int[]arr,int s,int n) {
+        long startTime = System.nanoTime();
+        reverseArr(arr,0, n);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
+
+        System.out.println();
+        System.out.println("Time taken: " + duration + " milliseconds");
+        System.out.println("----------------------------------");
+    }
+    /*
+     * This method recursively reverses and prints an array
+     * Time complexity: O(n)
+     * @param arr Array to be reversed
+     * @param s Current index in recursion
+     * @param n Length of the array
+     */
+    public static void reverseArr (int[] arr, int s,int n){
         System.out.print(arr[n - s-1] + " ");
         if(s == arr.length - 1){
             return;
         }
         else{
-            rvarr(arr,s+1,n);
+            reverseArr(arr,s+1,n);
         }
     }
 }

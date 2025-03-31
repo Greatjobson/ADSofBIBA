@@ -5,14 +5,36 @@ import java.util.Scanner;
 public class T6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("a^n");
+        System.out.println("a-->");
         int a = sc.nextInt();
+        System.out.println("n-->");
         int n = sc.nextInt();
-        System.out.println(asn(n,a));//calling func for result
+        callFunc(a,n);//calling func for result
     }
-    public static int asn(int n,int a){  //asn - a^n
+    public static void callFunc(int a,int n) {
+        long startTime = System.nanoTime();
+        int result = asn(n,a);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
+
+        System.out.println(result);
+        System.out.println("Time taken: " + duration + " milliseconds");
+        System.out.println("----------------------------------");
+    }
+    /*
+     * This program calculates the power of a number using recursion.
+     * It computes a^n (a raised to the power of n).
+     * The recursive approach multiplies 'a' by itself 'n' times.
+     *
+     * Time complexity: O(n) due to n recursive calls.
+     * @param a The base number.
+     * @param n The
+     */
+    public static int asn(int a,int n){  //asn - a^n
         if(n<=0){
             return 1;
         }
-        return a*asn(n-1,a);
+        return a*asn(a,n-1);
     }
 }

@@ -14,7 +14,18 @@ public class T2 { //function that returns average of array elements
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(avg(arr,0,0)); //calling function for find average
+        callFunc(arr,0,0); //calling function for find average
+    }
+
+    public static void callFunc(int[] arr, int i, float sum) {
+        long startTime = System.nanoTime();
+        float result = avg(arr,0,0);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
+
+        System.out.println(result);
+        System.out.println("Time taken: " + duration + " milliseconds");
+        System.out.println("----------------------------------");
     }
 
     /*function that return average of array elements

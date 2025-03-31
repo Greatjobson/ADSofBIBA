@@ -5,9 +5,21 @@ import java.util.Scanner;
 public class T5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("n-->");
         int n = sc.nextInt();
-        System.out.println(fib(n));//calling func for result
+        callFunc(n);//calling func for result
     }
+    public static void callFunc(int n) {
+        long startTime = System.nanoTime();
+        int result = fib(n);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
+
+        System.out.println(result);
+        System.out.println("Time taken: " + duration + " milliseconds");
+        System.out.println("----------------------------------");
+    }
+
     public static int fib(int n){
         //F(0) = 0
         //F(1) = 1

@@ -13,7 +13,18 @@ public class T1 { // function that returns minimum of them
             arr[i] = sc.nextInt();
         }
 
-        System.out.println(minN(arr,0)); //calling func for result
+        callFunc(n,arr); //calling func for result
+    }
+
+    public static void callFunc(int n,int[]arr) {
+        long startTime = System.nanoTime();
+        int result = minN(arr,0);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
+
+        System.out.println(result);
+        System.out.println("Time taken: " + duration + " milliseconds");
+        System.out.println("----------------------------------");
     }
 
     /*
