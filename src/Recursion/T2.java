@@ -16,7 +16,10 @@ public class T2 { //function that returns average of array elements
 
         callFunc(arr,0,0); //calling function for find average
     }
-
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int[] arr, int i, float sum) {
         long startTime = System.nanoTime();
         float result = avg(arr,0,0);

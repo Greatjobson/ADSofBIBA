@@ -9,6 +9,10 @@ public class T5 {
         int n = sc.nextInt();
         callFunc(n);//calling func for result
     }
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int n) {
         long startTime = System.nanoTime();
         int result = fib(n);

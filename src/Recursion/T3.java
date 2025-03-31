@@ -11,6 +11,10 @@ public class T3 {//the function for checking whether“n” is prime.
         int n = sc.nextInt(); // input number for checking --> n
         callFunc(n); //calling func for results
     }
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int n) {
         long startTime = System.nanoTime();
         String result = isp(n);

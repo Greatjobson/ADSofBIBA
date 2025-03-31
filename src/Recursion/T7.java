@@ -14,6 +14,10 @@ public class T7 {
         }
         callFunc(arr,0,n);//calling func for result
     }
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int[]arr,int s,int n) {
         long startTime = System.nanoTime();
         reverseArr(arr,0, n);

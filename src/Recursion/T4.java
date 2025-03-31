@@ -10,6 +10,10 @@ public class T4 {// the program using recursion for finding “n!”
 
         callFunc(n);
     }
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int n) {
         long startTime = System.nanoTime();
         int result = fac(n);

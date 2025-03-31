@@ -15,7 +15,10 @@ public class T1 { // function that returns minimum of them
 
         callFunc(n,arr); //calling func for result
     }
-
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int n,int[]arr) {
         long startTime = System.nanoTime();
         int result = minN(arr,0);

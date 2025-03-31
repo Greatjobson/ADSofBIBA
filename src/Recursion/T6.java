@@ -12,6 +12,10 @@ public class T6 {
         int n = sc.nextInt();
         callFunc(a,n);//calling func for result
     }
+    /*function that call task function
+     *It measures execution time for performance analysis.
+     *@param same as task fucntion
+     */
     public static void callFunc(int a,int n) {
         long startTime = System.nanoTime();
         int result = asn(n,a);
