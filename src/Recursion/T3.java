@@ -17,7 +17,7 @@ public class T3 {//the function for checking whether“n” is prime.
      */
     public static void callFunc(int n) {
         long startTime = System.nanoTime();
-        String result = isp(n);
+        String result = isp(n,0);
         long endTime = System.nanoTime();
         double duration = (endTime - startTime) / 1_000_000.0; // Convert to milliseconds
 
@@ -34,12 +34,21 @@ public class T3 {//the function for checking whether“n” is prime.
      * @return "Prime" if prime, "Composite" otherwise
      */
 
-    public static String isp (int n){ //isp - is prime func that checking numbers for know its prime or not
-        for (int i = 2; i <= abs(n)/2; i++) {
-            if (n % i == 0) {
-                return "Composite"; //{2 .... , n/2}
-            }
+    public static String isp (int n,int s){ //isp - is prime func that checking numbers for know its prime or not
+//        for (int i = 2; i <= abs(n)/2; i++) {
+//            if (n % i == 0) {
+//                return "Composite"; //{2 .... , n/2}
+//            }
+//        }
+//        return "Prime"; //return prime if their no at least 1 number can divide the original number
+        if(s == n/2+1){
+            return "Prime";
         }
-        return "Prime"; //return prime if their no at least 1 number can divide the original number
+        if(n%s == 0){
+            return "Composite";
+        }
+        else{
+            return isp(n,s+1);
+        }
     }
 }
