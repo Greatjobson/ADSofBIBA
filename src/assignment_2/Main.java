@@ -47,8 +47,17 @@ public class Main {
         System.out.println(queue.remove());
         System.out.println(queue.peek());
 
-       }
 
+        MyMinHeap<Integer> minHeap = new MyMinHeap<>();
+        minHeap.add(5);
+        minHeap.add(3);
+        minHeap.add(8);
+        minHeap.add(1);
+        System.out.println("______________________________________");
+        System.out.println(minHeap.peek()); // 1
+        System.out.println(minHeap.poll()); // 1
+        System.out.println(minHeap.peek()); // 3
+    }
     public static void print(MyList<Integer> list) {
         for (int i =0; i<list.size(); i++){
             System.out.print(list.get(i)+" ");
