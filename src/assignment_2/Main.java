@@ -7,7 +7,7 @@ public class Main {
 
         list.add(1);
         list.add(2);
-        list.add(3);
+        list.add(6);
         list.add(4);
         list.add(5);
         list.add(6);
@@ -57,12 +57,15 @@ public class Main {
         System.out.println(minHeap.peek()); // 1
         System.out.println(minHeap.poll()); // 1
         System.out.println(minHeap.peek()); // 3
+
+
+
     }
     public static void print(MyList<Integer> list) {
-        for (int i =0; i<list.size(); i++){
-            System.out.print(list.get(i)+" ");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
         }
         System.out.println();
     }
-
+    //прописсать логику в 2 физ струк данных потом расширить ими стэк очередь и минхип
 }
