@@ -57,7 +57,7 @@ public class Main {
         System.out.println(minHeap.peek()); // 1
         System.out.println(minHeap.poll()); // 1
         System.out.println(minHeap.peek()); // 3
-
+//git commit -m 'added all methods'
 
 
     }
@@ -67,5 +67,4 @@ public class Main {
         }
         System.out.println();
     }
-    //прописсать логику в 2 физ струк данных потом расширить ими стэк очередь и минхип
 }
