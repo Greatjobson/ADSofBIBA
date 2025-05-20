@@ -1,28 +1,39 @@
 package assignment4;
 
 public class Main {
+    public static void outputPath(Search<String> search, String key) {
+        Vertex<String> destination = new Vertex<>(key);
 
+        if (!search.hasPathTo(destination)) {
+            System.out.println("path not founded");
+            return;
+        }
+
+        System.out.print("Path: ");
+        for (Vertex<String> vertex : search.pathTo(destination)) {
+            System.out.print(vertex + " -> ");
+            try {
+                Thread.sleep(500); // Задержка для имитации отслеживания
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println("End");
+    }
     public static void main(String[] args) {
         WeightedGraph<String> weightedGraph = new WeightedGraph<>(true);
         fillWithWeights(weightedGraph);
 
-//        System.out.println("Dijkstra:");
-//        Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
-//        outputPath(djk, "Kyzylorda");
 
 
         System.out.println("--------------------------------");
 
-
-//        System.out.println("DFS:");
-//        Search<String> dfs = new DepthFirstSearch<>(graph, "Almaty");
-//        outputPath(dfs, "Kyzylorda");
+        Search<String> dijkstraSearch = new DijkstraSearch<>(weightedGraph, "Almaty");
+        outputPath(dijkstraSearch, "Kyzylorda");
 
         System.out.println("--------------------------------");
 
-//        System.out.println("BFS:");
-//        Search<String> bfs = new BreadthFirstSearch<>(graph, "Almaty");
-//        outputPath(bfs, "Kyzylorda");
+
     }
 
     public static void fillWithWeights(WeightedGraph<String> graph) {
@@ -33,13 +44,13 @@ public class Main {
         graph.addEdge("Shymkent", "Astana", 3.9);
         graph.addEdge("Astana", "Kostanay", 3.5);
         graph.addEdge("Shymkent", "Kyzylorda", 5.4);
+        System.out.println("BFS:");
+        Search<String> bfs = new BreadthFirstSearch<>(graph, "Almaty");
+        Main.outputPath(bfs, "Kyzylorda");
+        Search<String> djk = new DijkstraSearch<>(graph, "Almaty");
+        outputPath(djk, "Kyzylorda");
     }
 
-//    public static void outputPath(Search<String> search, String key) {
-//        for (String v : search.pathTo(key)) {
-//            System.out.print(v + " -> ");
-//        }
-//
-//        System.out.println();
-//    }
+
+
 }

@@ -27,5 +27,7 @@ public class test {
         graph2.addEdge("Shymkent", "Kyzylorda", 5.4);
 
         //graph2.printGraph();
+        System.out.println("_______________________________________________________");
+        BreadthFirstSearch bfs = new BreadthFirstSearch<>(graph, "Almaty");
     }
 }

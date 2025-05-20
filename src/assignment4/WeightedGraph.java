@@ -1,12 +1,14 @@
 package assignment4;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class WeightedGraph<T> {
-    private Map<Vertex<T>, List<Edge<T>>> adjList;
+    private Map<Vertex<T>, List<Edge<T>>> adjList; // Добавлено поле
+
+    public Map<Vertex<T>, List<Edge<T>>> getAdjList() {
+        return adjList;
+    }
+
     private boolean directed;
 
     public WeightedGraph() {
@@ -14,27 +16,32 @@ public class WeightedGraph<T> {
         directed = false;
     }
 
+    // In WeightedGraph class
+    public Set<Vertex<T>> getVertices() {
+    return adjList.keySet();
+}
     public WeightedGraph(boolean directed) {
         this();
         this.directed = directed;
     }
+
     public void addVertex(Vertex<T> vertex) {
         adjList.putIfAbsent(vertex, new ArrayList<>());
     }
 
-   public void addEdge(T sourceData, T destinationData, double weight) {
-       Vertex<T> source = new Vertex<>(sourceData);
-       Vertex<T> destination = new Vertex<>(destinationData);
-       addVertex(source);
-       addVertex(destination);
-       adjList.get(source).add(new Edge<>(source, destination, weight));
-       if (!directed) {
-           adjList.get(destination).add(new Edge<>(destination, source, weight));
-       }
-   }
+    public void addEdge(T sourceData, T destinationData, double weight) {
+        Vertex<T> source = new Vertex<>(sourceData);
+        Vertex<T> destination = new Vertex<>(destinationData);
+        addVertex(source);
+        addVertex(destination);
+        adjList.get(source).add(new Edge<>(source, destination, weight));
+        if (!directed) {
+            adjList.get(destination).add(new Edge<>(destination, source, weight));
+        }
+    }
 
     public void printGraph() {
-        if(directed){
+        if (directed) {
             System.out.println("Directed Graph:");
             for (Map.Entry<Vertex<T>, List<Edge<T>>> entry : adjList.entrySet()) {
                 Vertex<T> vertex = entry.getKey();
@@ -49,8 +56,7 @@ public class WeightedGraph<T> {
                     System.out.println();
                 }
             }
-        }
-        else{
+        } else {
             System.out.println("Undirected graph: ");
             for (Map.Entry<Vertex<T>, List<Edge<T>>> entry : adjList.entrySet()) {
                 Vertex<T> vertex = entry.getKey();
